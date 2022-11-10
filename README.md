@@ -1,5 +1,7 @@
 # alperencelik.com
 
+Nuxt, Mobile First, Primevue, Scss
+
 ## Build Setup
 
 ```bash
