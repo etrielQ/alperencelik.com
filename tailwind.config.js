@@ -2,7 +2,10 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: {
+        DEFAULT: '2rem',
+        desktop: '4rem',
+      },
     },
     colors: {
       transparent: 'transparent',
@@ -18,8 +21,27 @@ module.exports = {
       grayBg: '#EBEBEB',
       grayBgLight: '#F4F4F4',
       borderColor: '#DBDBDB',
-
-      // ...
+    },
+    fontSize: {
+      xs: '1.8rem',
+      base: '2rem',
+      sm: '2.4rem',
+      md: '2.8rem',
+      lg: '3.2rem',
+      xl: '4.2rem',
+      '2xl': '5.8rem',
+      '3xl': '7.8rem',
+      '4xl': '9rem',
+      '5xl': '11rem',
+    },
+    screens: {
+      tabletSmall: '577px',
+      tablet: '769px',
+      tabletBig: '993px',
+      desktop: '1025px',
+      laptop: '1201px',
+      desktopM: '1441px',
+      desktopL: '1621px',
     },
   },
 }
