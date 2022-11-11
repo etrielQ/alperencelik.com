@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <p>test</p>
     <svg-icon name="iconPolygon" />
     <div class="container">
