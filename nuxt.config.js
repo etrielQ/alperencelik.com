@@ -24,8 +24,12 @@ export default {
 
   buildModules: ['@nuxtjs/eslint-module'],
 
-  modules: ['primevue/nuxt', '@nuxtjs/axios', '@nuxtjs/svg-sprite'],
-
+  modules: [
+    'primevue/nuxt',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/axios',
+    '@nuxtjs/svg-sprite',
+  ],
   axios: {
     baseURL: '/',
   },
