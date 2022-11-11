@@ -18,8 +18,7 @@ export default {
 
   css: ['~/assets/sass/app.scss'],
 
-  plugins: [],
-
+  plugins: [{ src: '~/plugins/splide.js', mode: 'client' }],
   components: true,
 
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
