@@ -18,7 +18,6 @@ export default {
 
   css: ['~/assets/sass/app.scss'],
 
-  plugins: [{ src: '~/plugins/splide.js', mode: 'client' }],
   components: true,
 
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
@@ -26,6 +25,13 @@ export default {
   modules: ['primevue/nuxt', '@nuxtjs/axios', '@nuxtjs/svg-sprite'],
   axios: {
     baseURL: '/',
+  },
+
+  storybook: {
+    port: 4000,
+    parameters: {
+      chromatic: { disable: true },
+    },
   },
 
   build: {
