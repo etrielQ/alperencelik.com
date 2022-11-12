@@ -16,7 +16,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['~/assets/sass/app.scss'],
+  css: ['swiper/swiper-bundle.min.css', '~/assets/sass/app.scss'],
 
   components: true,
 
@@ -36,5 +36,13 @@ export default {
 
   build: {
     transpile: ['primevue'],
+    standalone: true,
+    extend(config, ctx) {
+      config.externals = [
+        {
+          encoding: 'encoding',
+        },
+      ]
+    },
   },
 }
