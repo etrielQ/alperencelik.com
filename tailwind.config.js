@@ -43,5 +43,12 @@ module.exports = {
       desktopM: '1441px',
       desktopL: '1621px',
     },
+    boxShadow: {
+      dark: '0px 3px 5px 1px #E2E2E2;',
+    },
+    fontFamily: {
+      primary: ["'Mukta', sans-serif"],
+      secondary: ["'Katibeh', cursive"],
+    },
   },
 }
