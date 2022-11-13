@@ -24,8 +24,14 @@ export const state = () => ({
   ],
 })
 
+export const getters = {
+  updateHeaderHeight(state) {
+    return state.headerHeight / 10
+  },
+}
+
 export const mutations = {
-  updateHeaderHeight(state, commit) {
+  getHeaderHeight(state, commit) {
     state.headerHeight = commit
   },
 }

@@ -114,7 +114,7 @@ export default {
   },
   mounted() {
     const appHeaderHeight = this.$refs.appHeader.offsetHeight
-    this.$store.commit('updateHeaderHeight', appHeaderHeight)
+    this.$store.commit('getHeaderHeight', appHeaderHeight)
   },
 
   methods: {
