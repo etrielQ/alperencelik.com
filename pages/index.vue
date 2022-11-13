@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <p>test</p>
+    <v-button type="primary">vbuton</v-button>
     <svg-icon name="iconPolygon" />
     <div class="grid">
       <div v-for="n in 6" :key="n" class="col">asd</div>

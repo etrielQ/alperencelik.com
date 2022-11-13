@@ -16,7 +16,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['swiper/swiper-bundle.min.css', '~/assets/sass/app.scss'],
+  css: ['~/assets/sass/app.scss', 'swiper/swiper-bundle.min.css'],
 
   components: true,
 
@@ -25,13 +25,6 @@ export default {
   modules: ['primevue/nuxt', '@nuxtjs/axios', '@nuxtjs/svg-sprite'],
   axios: {
     baseURL: '/',
-  },
-
-  storybook: {
-    port: 4000,
-    parameters: {
-      chromatic: { disable: true },
-    },
   },
 
   build: {
