@@ -1,9 +1,9 @@
 <template>
-  <div class="container">content</div>
+  <div>footer</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'AppFooter',
 }
 </script>

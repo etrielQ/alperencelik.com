@@ -1,9 +1,9 @@
 <template>
-  <div class="container">content</div>
+  <div>header</div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'AppHeader',
 }
 </script>

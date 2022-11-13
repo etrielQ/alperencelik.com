@@ -16,9 +16,9 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['~/assets/sass/app.scss', 'swiper/swiper-bundle.min.css'],
+  css: ['swiper/swiper-bundle.min.css', '~/assets/sass/app.scss'],
 
-  components: true,
+  components: {},
 
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
 
