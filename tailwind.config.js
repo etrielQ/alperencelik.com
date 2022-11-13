@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 module.exports = {
   theme: {
     container: {
@@ -45,10 +46,16 @@ module.exports = {
     },
     boxShadow: {
       dark: '0px 3px 5px 1px #E2E2E2;',
+      none: '0px 0px 0px 0px transparent;',
     },
     fontFamily: {
       primary: ["'Mukta', sans-serif"],
       secondary: ["'Katibeh', cursive"],
     },
   },
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('is-language-active', '.is-language-active &')
+    }),
+  ],
 }

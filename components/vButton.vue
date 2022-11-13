@@ -1,13 +1,26 @@
 <template>
-  <button class="bg-primary p-2">
+  <nuxt-link
+    :to="link"
+    class="px-[3.2rem] py-[1rem] ease-in-out duration-300"
+    :class="{
+      'bg-grayBgLight text-primary rounded-3xl shadow-dark hover:bg-primary hover:text-white hover:shadow-none':
+        type === 'default',
+    }"
+  >
     <span v-if="icon" class="">{{ icon }}</span>
-    <slot />
-  </button>
+    <span class="font-primary font-semibold">
+      <slot />
+    </span>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
+    link: {
+      type: String,
+      default: '/',
+    },
     icon: {
       type: String,
       default: '',

@@ -15,3 +15,13 @@ body {
   stroke: currentColor;
   fill: currentColor;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+  transform: translateY(2rem);
+}
