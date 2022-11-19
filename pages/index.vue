@@ -1,5 +1,5 @@
 <template>
-  <div class="container h-[100rem]">content</div>
+  <indexHero />
 </template>
 
 <script>
