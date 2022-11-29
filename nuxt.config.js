@@ -26,6 +26,9 @@ export default {
   axios: {
     baseURL: '/',
   },
+  tailwindcss: {
+    cssPath: '~/assets/sass/app.css',
+  },
 
   build: {
     transpile: ['primevue'],

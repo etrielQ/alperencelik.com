@@ -1,6 +1,18 @@
 <template>
-  <header ref="appHeader" class="fixed inset-x-0 w-full h-auto py-[4rem]">
-    <div class="container max-w-full">
+  <header
+    ref="appHeader"
+    class="fixed top-0 left-0 w-full h-auto z-30 ease-in-out duration-300"
+    :class="isSticky ? 'top-[1rem]' : 'top-0'"
+    @scroll="handleScroll"
+  >
+    <div
+      class="container ease-in-out duration-300 rounded-[2rem]"
+      :class="
+        isSticky
+          ? 'backdrop-blur-md py-[2rem] px-[2rem] bg-white/30'
+          : 'max-w-full py-[4rem]'
+      "
+    >
       <div class="flex items-center justify-between relative">
         <nuxt-link to="/" class="block w-[23rem]">
           <img
@@ -104,6 +116,7 @@ export default {
   data() {
     return {
       isLanguageDropdown: false,
+      isSticky: false,
     }
   },
 
@@ -113,6 +126,9 @@ export default {
     },
   },
   mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('scroll', this.handleScroll)
+    })
     const appHeaderHeight = this.$refs.appHeader.offsetHeight
     this.$store.commit('getHeaderHeight', appHeaderHeight)
   },
@@ -120,6 +136,16 @@ export default {
   methods: {
     hideLanguageDropdown() {
       this.isLanguageDropdown = false
+    },
+    handleScroll() {
+      const appHeader = this.$refs.appHeader
+      const sticky = appHeader.getBoundingClientRect().height / 2
+      console.log(this.$refs.appHeader.getBoundingClientRect().height)
+      if (window.pageYOffset > sticky) {
+        this.isSticky = true
+      } else {
+        this.isSticky = false
+      }
     },
   },
 }
