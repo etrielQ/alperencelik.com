@@ -27,7 +27,8 @@ export default {
     baseURL: '/',
   },
   tailwindcss: {
-    cssPath: '~/assets/sass/app.css',
+    cssPath: '~/assets/sass/app.scss',
+    exposeConfig: true,
   },
 
   build: {

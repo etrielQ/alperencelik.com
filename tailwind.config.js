@@ -45,6 +45,7 @@ module.exports = {
       desktopL: '1621px',
     },
     boxShadow: {
+      hero: '0px 0px 100px 40px #EBEBEB',
       dark: '0px 3px 5px 1px #E2E2E2;',
       none: '0px 0px 0px 0px transparent;',
     },
