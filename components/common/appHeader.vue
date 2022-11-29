@@ -140,7 +140,6 @@ export default {
     handleScroll() {
       const appHeader = this.$refs.appHeader
       const sticky = appHeader.getBoundingClientRect().height / 2
-      console.log(this.$refs.appHeader.getBoundingClientRect().height)
       if (window.pageYOffset > sticky) {
         this.isSticky = true
       } else {
