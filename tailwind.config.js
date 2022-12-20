@@ -22,8 +22,10 @@ module.exports = {
       grayBg: '#EBEBEB',
       grayBgLight: '#F4F4F4',
       borderColor: '#DBDBDB',
+      upwork: '#108a00',
     },
     fontSize: {
+      xxs: '1.6rem',
       xs: '1.8rem',
       base: '2rem',
       sm: '2.4rem',

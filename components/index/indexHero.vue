@@ -30,5 +30,120 @@
         </div>
       </div>
     </div>
+    <div class="overflow-hidden">
+      <div class="container">
+        <sectionTitle />
+        <div ref="platformSlider" class="swiper overflow-visible">
+          <div class="swiper-wrapper items-stretch">
+            <div
+              v-for="item in platformItems"
+              :key="item.id"
+              class="swiper-slide h-auto"
+            >
+              <PlatformCard
+                :logo="item.logo"
+                :link="item.link"
+                :tags="item.tags"
+                :profile="item.profile"
+                :color="item.color"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
+
+<script>
+import { Swiper, Navigation, Pagination, EffectCoverflow } from 'swiper'
+export default {
+  data() {
+    return {
+      platformItems: [
+        {
+          id: 1,
+          logo: 'images/upwork-logo.png',
+          link: '#0',
+          color: 'bg-upwork',
+          tags: [
+            { id: 1, text: 'Psd/Figma to Html or Vue/Nuxt' },
+            { id: 2, text: 'Ui Development' },
+            { id: 3, text: 'UI - UX Designing' },
+          ],
+          profile: [
+            {
+              id: 1,
+              image: 'images/alperen-pp.jpg',
+              name: 'Alperen Çelik',
+              link: '#0',
+            },
+          ],
+        },
+        {
+          id: 2,
+          logo: 'images/upwork-logo.png',
+          link: '#0',
+          color: 'bg-upwork',
+          tags: [
+            { id: 1, text: 'Psd/Figma to Html or Vue/Nuxt' },
+            { id: 2, text: 'Ui Development' },
+            { id: 3, text: 'UI - UX Designing' },
+          ],
+          profile: [
+            {
+              id: 1,
+              image: 'images/alperen-pp.jpg',
+              name: 'Alperen Çelik',
+              link: '#0',
+            },
+          ],
+        },
+        {
+          id: 3,
+          logo: 'images/upwork-logo.png',
+          link: '#0',
+          color: 'bg-upwork',
+          tags: [
+            { id: 1, text: 'Psd/Figma to Html or Vue/Nuxt' },
+            { id: 2, text: 'Ui Development' },
+            { id: 3, text: 'UI - UX Designing' },
+          ],
+          profile: [
+            {
+              id: 1,
+              image: 'images/alperen-pp.jpg',
+              name: 'Alperen Çelik',
+              link: '#0',
+            },
+          ],
+        },
+        {
+          id: 4,
+          logo: 'images/upwork-logo.png',
+          link: '#0',
+          color: 'bg-upwork',
+          tags: [{ id: 1, text: 'Psd/Figma to Html or Vue/Nuxt' }],
+          profile: [
+            {
+              id: 1,
+              image: 'images/alperen-pp.jpg',
+              name: 'Alperen Çelik',
+              link: '#0',
+            },
+          ],
+        },
+      ],
+    }
+  },
+  async mounted() {
+    await this.$nextTick()
+    Swiper.use([Navigation, Pagination, EffectCoverflow])
+    const platformSwiper = new Swiper(this.$refs.platformSlider, {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    })
+    platformSwiper.on('slideChange', function () {})
+  },
+}
+</script>
