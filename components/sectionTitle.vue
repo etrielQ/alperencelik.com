@@ -1,7 +1,7 @@
 <template>
   <h3
     ref="sectionTitle"
-    class="text-[5.8rem] text-grayDark font-secondary font-[400] mb-[-1rem]"
+    class="text-[5.8rem] text-grayDark font-secondary font-[400] mb-[-1rem] leading-[1.1em]"
   >
     {{ name }}
   </h3>
