@@ -3,7 +3,7 @@
     class="h-full flex flex-col bg-grayBgLight border border-borderColor rounded-[0.8rem] self-stretch group transition-all"
   >
     <div
-      class="flex h-[10rem] rounded-t-md p-5 items-center relative transition-all group-hover:color"
+      class="flex h-[10rem] rounded-t-md p-5 items-center relative transition-all"
       :class="'group-hover:' + color"
     >
       <img

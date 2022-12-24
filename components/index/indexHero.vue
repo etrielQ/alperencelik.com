@@ -32,7 +32,7 @@
     </div>
     <div class="overflow-hidden">
       <div class="container">
-        <sectionTitle />
+        <sectionTitle name="Platforms" />
         <div ref="platformSlider" class="swiper overflow-visible">
           <div class="swiper-wrapper items-stretch">
             <div

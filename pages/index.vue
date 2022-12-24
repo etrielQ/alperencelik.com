@@ -1,6 +1,7 @@
 <template>
   <div>
     <indexHero />
+    <indexAbout />
   </div>
 </template>
 
