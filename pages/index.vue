@@ -2,7 +2,8 @@
   <div>
     <indexHero />
     <indexAbout />
-    <indexHowIWork />
+    <!-- <indexHowIWork />  -->
+    <indexWorks />
   </div>
 </template>
 

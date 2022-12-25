@@ -23,6 +23,8 @@ module.exports = {
       grayBgLight: '#F4F4F4',
       borderColor: '#DBDBDB',
       upwork: '#108a00',
+      fromGradient: 'rgba(244, 244, 244, 1)',
+      toGradient: 'rgba(244, 244, 244, 0.7)',
     },
     fontSize: {
       xxs: '1.6rem',

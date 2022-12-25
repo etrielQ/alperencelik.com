@@ -7,10 +7,10 @@
         type === 'default',
     }"
   >
-    <span v-if="icon" class="">{{ icon }}</span>
     <span class="font-primary font-semibold">
       <slot />
     </span>
+    <span v-if="icon" class="">{{ icon }}</span>
   </nuxt-link>
 </template>
 
