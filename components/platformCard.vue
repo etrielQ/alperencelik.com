@@ -1,19 +1,19 @@
 <template>
   <div
-    class="h-full flex flex-col bg-grayBgLight border border-borderColor rounded-[0.8rem] self-stretch group transition-all"
+    class="h-full flex flex-col bg-grayBgLight border border-borderColor rounded-[0.8rem] self-stretch group ease-in-out duration-300"
   >
     <div
-      class="flex h-[10rem] rounded-t-md p-5 items-center relative transition-all"
+      class="flex h-[10rem] rounded-t-md p-5 items-center relative ease-in-out duration-300 bg-transparent"
       :class="'group-hover:' + color"
     >
       <img
-        class="transition-all absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:translate-x-[0] group-hover:left-[1.25rem]"
+        class="ease-in-out duration-300 absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:translate-x-[0] group-hover:left-[1.25rem]"
         :src="logo"
         alt=""
       />
       <a
         :href="link"
-        class="text-xxs flex text-white items-center absolute top-[50%] right-[1.25rem] opacity-0 translate-y-[-50%] transition-all group-hover:opacity-100 group-hover:w-max"
+        class="text-xxs flex text-white items-center absolute top-[50%] right-[1.25rem] opacity-0 translate-y-[-50%] ease-in-out duration-300 group-hover:opacity-100 group-hover:w-max"
       >
         <p class="mr-2">go to platform</p>
         <svg-icon name="iconArrow" />

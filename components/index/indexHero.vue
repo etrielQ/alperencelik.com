@@ -29,6 +29,12 @@
           </a>
         </div>
       </div>
+      <div class="absolute right-[4.5rem] top-[12rem] flex flex-col gap-[2rem]">
+        <v-button type="only-i" icon="iconGithub" link="#0"> </v-button>
+        <v-button type="only-i" icon="iconBehance" link="#0"> </v-button>
+        <v-button type="only-i" icon="iconLinkedin" link="#0"> </v-button>
+        <v-button type="only-i" icon="iconInstagram" link="#0"> </v-button>
+      </div>
     </div>
     <div class="overflow-hidden">
       <div class="container">

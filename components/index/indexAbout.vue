@@ -1,6 +1,6 @@
 <template>
   <!-- TODO: Background Shapes Will Be Added. -->
-  <div class="p-[10rem] border-y-[0.1rem] border-borderColor container">
+  <div class="p-[10rem] container">
     <div>
       <div class="grid grid-cols-2 gap-[10rem]">
         <div>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="js-how-work py-[10rem] w-[300%] h-[100vh] relative overflow-x-hidden bg-white after:content-[''] after:absolute after:top-[50%] after:left-0 after:w-[62rem] after:h-[62rem] after:rounded-full after:bg-primaryLight after:blur-[7.5rem] after:-translate-y-1/2 after:-translate-x-1/3"
+    class="js-how-work py-[10rem] w-[300%] border-y-[0.1rem] border-borderColor h-[100vh] relative overflow-x-hidden bg-white after:content-[''] after:absolute after:top-[50%] after:left-0 after:w-[62rem] after:h-[62rem] after:rounded-full after:bg-primaryLight after:blur-[7.5rem] after:-translate-y-1/2 after:-translate-x-1/3"
     data-type="horizontal"
   >
     <div class="container">
