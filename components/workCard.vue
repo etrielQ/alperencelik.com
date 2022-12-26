@@ -4,15 +4,20 @@
   >
     <div class="absolute top-0 left-0 w-full h-full z-[1]">
       <img
-        class="absolute top-[10rem] left-[4rem] h-full z-[2]"
+        class="absolute top-[10rem] left-[4rem] h-full z-[2] max-w-[38rem]"
         src="~/static/images/chace-banner-1.png"
         alt=""
       />
       <img
-        class="absolute top-0 right-[4rem] z-0"
+        class="absolute top-0 right-[4rem] z-0 max-w-[38rem]"
         src="~/static/images/chace-banner-2.png"
         alt=""
       />
+    </div>
+    <div
+      class="absolute top-0 right-0 w-[8rem] h-[8rem] rounded-tr-[2.4rem] bg-[#c2a556] z-[3] flex items-center justify-center"
+    >
+      <svg-icon class="text-[3.4rem] text-white" name="iconAward" />
     </div>
     <div class="absolute left-0 bottom-0 z-[3] p-[4rem] w-full">
       <div class="flex items-center justify-between group-hover:text-primary">

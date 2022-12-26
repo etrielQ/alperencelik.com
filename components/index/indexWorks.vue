@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section-top section-top-between">
         <section-title name="Works" />
-        <v-button link="#0" icon="iconArrow" type="default">
+        <v-button link="/works" icon="iconArrow" type="default">
           See All Works
         </v-button>
       </div>

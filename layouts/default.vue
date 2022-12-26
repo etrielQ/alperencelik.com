@@ -1,11 +1,7 @@
 <template>
   <div class="bg-grayBg">
     <AppHeader />
-    <main
-      :style="{
-        'padding-top': $store.getters.updateHeaderHeight + 'rem',
-      }"
-    >
+    <main>
       <Nuxt />
     </main>
     <AppFooter />

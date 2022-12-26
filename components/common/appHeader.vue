@@ -9,14 +9,21 @@
       class="container ease-in-out duration-300 rounded-[2rem]"
       :class="
         isSticky
-          ? 'backdrop-blur-md py-[2rem] px-[2rem] bg-white/30'
+          ? 'backdrop-blur-md py-[2rem] px-[2rem] bg-white/30 '
           : 'max-w-full py-[4rem]'
       "
     >
       <div class="flex items-center justify-between relative">
         <nuxt-link to="/" class="block w-[23rem]">
           <img
+            v-if="isDark === false"
             src="images/alperencelik-logo.svg"
+            class="w-full object-contain"
+            alt="alperencelik logo"
+          />
+          <img
+            v-else
+            src="images/alperencelik-logo-dark.svg"
             class="w-full object-contain"
             alt="alperencelik logo"
           />
@@ -31,7 +38,12 @@
           >
             <nuxt-link
               :to="route.link"
-              class="block font-semibold text-gray font-primary px-[2rem] py-[1rem] hover:bg-primaryLight hover:text-primary ease-in-out duration-300 rounded-[0.5rem]"
+              class="block font-semibold font-primary px-[2rem] py-[1rem] hover:bg-primaryLight hover:text-primary ease-in-out duration-300 rounded-[0.5rem]"
+              :class="{
+                'text-gray hover:bg-primaryLight ': isDark === false,
+                'text-primaryLight hover:bg-primaryDarken hover:text-primary':
+                  isDark === true,
+              }"
               >{{ route.name }}
             </nuxt-link>
           </li>
@@ -52,7 +64,8 @@
               alt=""
             />
             <span
-              class="font-primary font-medium text-grayDark group-hover:text-primary is-language-active:text-primary ease-in-out duration-300"
+              class="font-primary font-medium text-gray group-hover:text-primary is-language-active:text-primary ease-in-out duration-300"
+              :class="{ 'text-primaryLight': isDark === true }"
               >ENG</span
             >
             <svg-icon
@@ -117,6 +130,7 @@ export default {
     return {
       isLanguageDropdown: false,
       isSticky: false,
+      isDark: true,
     }
   },
 

@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div
+    :style="{
+      'padding-top': $store.getters.updateHeaderHeight + 'rem',
+    }"
+  >
     <indexHero />
     <indexAbout />
     <!-- <indexHowIWork />  -->
