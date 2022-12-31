@@ -30,7 +30,12 @@ export default {
 
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
 
-  modules: ['primevue/nuxt', '@nuxtjs/axios', '@nuxtjs/svg-sprite'],
+  modules: [
+    'primevue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/svg-sprite',
+    '@nuxtjs/i18n',
+  ],
   axios: {
     baseURL: '/',
   },
@@ -48,6 +53,22 @@ export default {
           encoding: 'encoding',
         },
       ]
+    },
+  },
+
+  i18n: {
+    locales: ['en', 'tr'],
+    defaultLocale: 'tr',
+    vueI18n: {
+      fallbackLocale: 'tr',
+      messages: {
+        en: {
+          welcome: 'Welcome',
+        },
+        tr: {
+          welcome: 'Selamlar',
+        },
+      },
     },
   },
 }

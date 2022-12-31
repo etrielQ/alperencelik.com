@@ -1,5 +1,5 @@
 <template>
-  <div class="py-[10rem] overflow-hidden">
+  <div v-if="workDatas.length > 0" class="py-[10rem] overflow-hidden">
     <div class="container">
       <div class="section-top section-top-between">
         <section-title name="Works" />
@@ -9,14 +9,12 @@
       </div>
       <div ref="workSlider" class="swiper overflow-visible mt-[5.5rem]">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <workCard />
-          </div>
-          <div class="swiper-slide">
-            <workCard />
-          </div>
-          <div class="swiper-slide">
-            <workCard />
+          <div
+            v-for="(work, index) in workDatas"
+            :key="index"
+            class="swiper-slide"
+          >
+            <workCard :workData="work" />
           </div>
         </div>
       </div>
@@ -27,7 +25,13 @@
 <script>
 import { Swiper } from 'swiper'
 export default {
+  data() {
+    return {
+      workDatas: [],
+    }
+  },
   async mounted() {
+    this.workDatas = await this.$store.state.works
     await this.$nextTick()
     Swiper.use()
     const workSlider = new Swiper(this.$refs.workSlider, {

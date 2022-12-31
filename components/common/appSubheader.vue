@@ -203,7 +203,7 @@
           <div
             class="font-secondary text-primaryLight text-[9rem] h-[9rem] font-[400] uppercase"
           >
-            Chace people
+            {{ title }}
           </div>
           <div
             class="flex items-center"
@@ -211,20 +211,22 @@
           >
             <breadcrumb-item
               color="text-primaryLight"
-              :first="true"
+              :first="index == 0 ? true : false"
               icon="iconArrow"
+              v-for="(bc, index) in bcItem"
+              :key="index"
             >
-              Home
+              {{ bc.name }}
             </breadcrumb-item>
-            <breadcrumb-item
+            <!-- <breadcrumb-item
               color="text-primaryLight"
               :first="false"
               icon="iconArrow"
             >
               Works
-            </breadcrumb-item>
+            </breadcrumb-item> -->
             <breadcrumb-item color="text-primary" :first="false">
-              Chace People
+              {{ title }}
             </breadcrumb-item>
           </div>
         </div>
@@ -232,7 +234,7 @@
           v-if="workShare"
           class="flex items-center px-[5rem] py-[3.5rem] bg-primaryDarken rounded-[1rem]"
         >
-          <a href="#0" class="flex items-center">
+          <a target="_blank" :href="workHref" class="flex items-center">
             <div class="text-base text-primaryLight font-[600]">
               Visit Website
             </div>
@@ -255,41 +257,18 @@
         v-if="image"
         class="mt-[7.5rem] relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-primaryDark after:z-[1]"
       >
-        <img
-          class="h-[60rem] w-full"
-          src="~/static/images/work-chace.png"
-          alt=""
-        />
+        <img class="h-[60rem] w-full" :src="image" alt="" />
       </div>
       <div
         v-if="filterItems"
         class="flex items-center justify-center gap-[3.5rem] mt-[10rem]"
       >
         <div
+          v-for="(item, index) in filterItems"
+          :key="index"
           class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem] active:after:bg-primary"
         >
-          All
-        </div>
-        <div
-          class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem]"
-        >
-          UI/UX DESIGN
-        </div>
-        <div
-          class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem]"
-        >
-          UI DEVELOPMENT
-        </div>
-        <div
-          class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem]"
-        >
-          FRONT END DEVELOPMENT
-        </div>
-        <div
-          class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem]"
-        >
-          <svg-icon name="iconAward" />
-          AWARDS
+          {{ item.name }}
         </div>
       </div>
     </div>

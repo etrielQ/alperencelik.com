@@ -9,7 +9,7 @@
       class="container ease-in-out duration-300 rounded-[2rem]"
       :class="
         isSticky
-          ? 'backdrop-blur-md py-[2rem] px-[2rem] bg-white/30 '
+          ? 'backdrop-blur-md py-[2rem] px-[2rem] bg-primaryDark/30 '
           : 'max-w-full py-[4rem]'
       "
     >
@@ -17,13 +17,13 @@
         <nuxt-link to="/" class="block w-[23rem]">
           <img
             v-if="isDark === false"
-            src="images/alperencelik-logo.svg"
+            src="~/static/images/alperencelik-logo.svg"
             class="w-full object-contain"
             alt="alperencelik logo"
           />
           <img
             v-else
-            src="images/alperencelik-logo-dark.svg"
+            src="~/static/images/alperencelik-logo-dark.svg"
             class="w-full object-contain"
             alt="alperencelik logo"
           />
