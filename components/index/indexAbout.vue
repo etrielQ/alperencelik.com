@@ -1,7 +1,7 @@
 <template>
-  <!-- TODO: Background Shapes Will Be Added. -->
-  <div class="p-[10rem] container">
-    <div>
+  <div id="about" class="p-[10rem] container relative overflow-hidden">
+    <indexAboutPattern />
+    <div class="relative inset-1">
       <div class="grid grid-cols-2 gap-[10rem]">
         <div>
           <sectionTitle class="mb-2" name="Hi, I'm Alperen" />
@@ -53,4 +53,3 @@
     </div>
   </div>
 </template>
-h

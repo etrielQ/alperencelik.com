@@ -1,5 +1,5 @@
 <template>
-  <section class="relative h-[100rem]">
+  <section id="platforms" class="relative h-[100rem]">
     <indexHeroPattern />
     <div class="container">
       <div

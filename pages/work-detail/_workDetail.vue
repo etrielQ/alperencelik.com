@@ -78,15 +78,32 @@
         </div>
       </div>
     </div>
-    {{ workData }}
+    <section class="py-[10rem]">
+      <div class="container">
+        <sectionTitle name="Responsive Screens" />
+        <div class="swiper js-responsive-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="work-slider__item work-slider__item--mobile">
+                <div class="work-slider__item-top"></div>
+              </div>
+              <div class="work-slider__item work-slider__item--tablet"></div>
+              <div class="work-slider__item work-slider__item--desktop"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import AppSubheader from '@/components/common/appSubheader.vue'
+import SectionTitle from '@/components/sectionTitle.vue'
 export default {
   components: {
     AppSubheader,
+    SectionTitle,
   },
   data() {
     return {

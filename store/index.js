@@ -3,12 +3,12 @@ export const state = () => ({
   routes: [
     {
       id: 1,
-      link: '/',
+      link: '/#platforms',
       name: 'Platforms',
     },
     {
       id: 2,
-      link: '/',
+      link: '/#about',
       name: 'About',
     },
     {
@@ -18,7 +18,7 @@ export const state = () => ({
     },
     {
       id: 4,
-      link: '/',
+      link: '/works',
       name: 'Works',
     },
   ],
@@ -26,9 +26,9 @@ export const state = () => ({
     {
       name: 'Chace People',
       href: 'https://chacepeople.com',
-      banner: '/_nuxt/static/images/work-chace.png',
-      cover_1: '/_nuxt/static/images/chace-banner-1.png',
-      cover_2: '/_nuxt/static/images/chace-banner-2.png',
+      banner: '/images/work-chace.png',
+      cover_1: '/images/chace-banner-1.png',
+      cover_2: '/images/chace-banner-2.png',
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
       awarded: true,
       tech: [
@@ -64,9 +64,9 @@ export const state = () => ({
     {
       name: 'Madamnica',
       href: 'https://madamnica.babelcloud.net',
-      banner: '/_nuxt/static/images/work-madamnica.png',
-      cover_1: '/_nuxt/static/images/madamnica-banner-1.png',
-      cover_2: '/_nuxt/static/images/madamnica-banner-2.png',
+      banner: '/images/work-madamnica.png',
+      cover_1: '/images/madamnica-banner-1.png',
+      cover_2: '/images/madamnica-banner-2.png',
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
       awarded: false,
       tech: [
@@ -93,7 +93,7 @@ export const state = () => ({
         { type: 'mobile', image: '' },
         { type: 'tablet', image: '' },
       ],
-      tag: 'Frontend Development',
+      tag: 'UI/UX Design',
     },
   ],
 })
