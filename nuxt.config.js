@@ -45,6 +45,11 @@ export default {
   },
 
   build: {
+    loaders: {
+      vue: {
+        prettify: false,
+      },
+    },
     transpile: ['primevue', 'gsap'],
     standalone: true,
     extend(config, ctx) {

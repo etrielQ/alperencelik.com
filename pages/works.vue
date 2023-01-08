@@ -6,16 +6,24 @@
         class="flex items-center justify-center gap-[3.5rem] mt-[10rem]"
       >
         <div
+          class="text-bas pb-[2rem] uppercase relative ease-in-out duration-300 cursor-pointer after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[calc(100%+2rem)] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem] after:ease-in-out after:duration-300"
+          :class="{
+            'after:bg-primary text-primary': selectedFilter == '',
+            'text-primaryLight': selectedFilter !== '',
+          }"
           @click="filter('')"
-          class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem] active:after:bg-primary"
         >
           All
         </div>
         <div
           v-for="(item, index) in filterItems"
           :key="index"
+          class="text-base pb-[2rem] uppercase relative ease-in-out duration-300 cursor-pointer after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[calc(100%+2rem)] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem] after:ease-in-out after:duration-300"
+          :class="{
+            'after:bg-primary text-primary': selectedFilter == item.name,
+            'text-primaryLight': selectedFilter !== item.name,
+          }"
           @click="filter(item.name)"
-          class="text-base text-primaryLight pb-[2rem] uppercase relative after:absolute after:left-[50%] after:translate-x-[-50%] after:bottom-0 after:w-[140%] after:h-[0.6rem] after:rounded-tl-[0.5rem] after:rounded-tr-[0.5rem] active:after:bg-primary"
         >
           <svg-icon v-if="item.icon" :name="item.icon" class="mr-[1rem]" />
           {{ item.name }}
@@ -75,9 +83,15 @@ export default {
   computed: {
     filteredItems: function () {
       const filter = this.selectedFilter
-      return this.workDatas.filter(function (item) {
-        return item.tag.includes(filter)
-      })
+      if (filter === 'Awards') {
+        return this.workDatas.filter(function (item) {
+          return item.awarded === true
+        })
+      } else {
+        return this.workDatas.filter(function (item) {
+          return item.tag.includes(filter)
+        })
+      }
     },
   },
   mounted() {},
