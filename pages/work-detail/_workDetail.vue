@@ -205,9 +205,9 @@ export default {
   async mounted() {
     await this.$nextTick()
     // Fetching Data
+    this.$store.commit('updateHeaderDark', true)
     this.workDatas = await this.$store.state.works
     this.workDatas.forEach((e, i) => {
-      console.log(e, i)
       if (this.slug === e.slug) {
         this.nextId = i + 1
       }

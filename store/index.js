@@ -1,5 +1,6 @@
 export const state = () => ({
   headerHeight: 0,
+  headerDark: false,
   routes: [
     {
       id: 1,
@@ -66,7 +67,7 @@ export const state = () => ({
     {
       name: 'Madamnica',
       slug: 'madamnica',
-      href: 'https://madamnica.babelcloud.net',
+      href: 'http://madamnica.babelcloud.net',
       banner: '/images/work-madamnica.png',
       cover_1: '/images/madamnica-banner-1.png',
       cover_2: '/images/madamnica-banner-2.png',
@@ -137,7 +138,7 @@ export const state = () => ({
     {
       name: 'Madamnica 2',
       slug: 'madamnica-2',
-      href: 'https://madamnica.babelcloud.net',
+      href: 'http://madamnica.babelcloud.net',
       banner: '/images/work-madamnica.png',
       cover_1: '/images/madamnica-banner-1.png',
       cover_2: '/images/madamnica-banner-2.png',
@@ -176,10 +177,16 @@ export const getters = {
   updateHeaderHeight(state) {
     return state.headerHeight / 10
   },
+  getHeaderDark(state) {
+    return state.headerDark
+  },
 }
 
 export const mutations = {
   getHeaderHeight(state, commit) {
     state.headerHeight = commit
+  },
+  updateHeaderDark(state, commit) {
+    state.headerDark = commit
   },
 }

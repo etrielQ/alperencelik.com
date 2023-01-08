@@ -7,16 +7,17 @@
   >
     <div
       class="container ease-in-out duration-300 rounded-[2rem]"
-      :class="
-        isSticky
-          ? 'backdrop-blur-md py-[2rem] px-[2rem] bg-primaryDark/30 '
-          : 'max-w-full py-[4rem]'
-      "
+      :class="{
+        'backdrop-blur-md py-[2rem] px-[2rem]': isSticky,
+        'max-w-full py-[4rem]': !isSticky,
+        'bg-primaryLight/30': !headerDark && isSticky,
+        'bg-primaryDark/30': headerDark && isSticky,
+      }"
     >
       <div class="flex items-center justify-between relative">
         <nuxt-link to="/" class="block w-[23rem]">
           <img
-            v-if="isDark === false"
+            v-if="headerDark == false"
             src="~/static/images/alperencelik-logo.svg"
             class="w-full object-contain"
             alt="alperencelik logo"
@@ -40,17 +41,19 @@
               :to="route.link"
               class="block font-semibold font-primary px-[2rem] py-[1rem] hover:bg-primaryLight hover:text-primary ease-in-out duration-300 rounded-[0.5rem]"
               :class="{
-                'text-gray hover:bg-primaryLight ': isDark === false,
+                'text-gray hover:bg-primaryLight ': headerDark === false,
                 'text-primaryLight hover:bg-primaryDarken hover:text-primary':
-                  isDark === true,
+                  headerDark == true,
               }"
               >{{ route.name }}
             </nuxt-link>
           </li>
         </ul>
         <div class="flex items-stretch justify-end shrink-0 relative">
-          <v-button link="/" type="default"> Get In Touch </v-button>
+          <v-button link="/" type="default">{{ $t('get-in-touch') }}</v-button>
           <div
+            v-for="locale in availableLocales"
+            :key="locale.code"
             v-click-outside="hideLanguageDropdown"
             class="group flex items-center ml-[2rem] px-[1.5rem] rounded-[0.8rem] cursor-pointer hover:bg-primaryLight ease-in-out duration-300"
             :class="{
@@ -59,14 +62,14 @@
             @click="isLanguageDropdown = !isLanguageDropdown"
           >
             <img
-              src="/images/flag-en.png"
+              :src="locale.image"
               class="w-[2rem] h-[2rem] object-cover rounded-full mr-[1rem]"
               alt=""
             />
             <span
               class="font-primary font-medium text-gray group-hover:text-primary is-language-active:text-primary ease-in-out duration-300"
-              :class="{ 'text-primaryLight': isDark === true }"
-              >ENG</span
+              :class="{ 'text-primaryLight': headerDark == true }"
+              >{{ locale.name }}</span
             >
             <svg-icon
               name="iconPolygon"
@@ -78,25 +81,24 @@
               v-if="isLanguageDropdown"
               class="bg-grayBgLight shadow-dark absolute top-full right-0 rounded-[1rem] p-[1rem] translate-y-[1rem]"
             >
-              <li>
+              <li v-for="locale in locales" :key="locale.code">
                 <nuxt-link
-                  to="/"
+                  :to="switchLocalePath(locale.code)"
                   class="group flex items-center px-[2rem] py-[1rem] hover:bg-primaryLight ease-in-out duration-300 rounded-[0.5rem] font-primary"
                 >
                   <img
-                    src="/images/flag-en.png"
+                    :src="locale.image"
                     class="w-[2rem] h-[2rem] object-cover rounded-full mr-[1rem]"
                     alt=""
                   />
                   <span
                     class="font-medium text-grayDark group-hover:text-primary ease-in-out duration-300"
-                    >ENG</span
+                    >{{ locale.name }}</span
                   >
                 </nuxt-link>
               </li>
-              <li>
+              <!-- <li>
                 <nuxt-link
-                  to="/"
                   class="group flex items-center px-[2rem] py-[1rem] hover:bg-primaryLight ease-in-out duration-300 rounded-[0.5rem] font-primary"
                 >
                   <img
@@ -109,7 +111,7 @@
                     >TUR</span
                   >
                 </nuxt-link>
-              </li>
+              </li> -->
             </ul>
           </transition>
         </div>
@@ -130,13 +132,21 @@ export default {
     return {
       isLanguageDropdown: false,
       isSticky: false,
-      isDark: true,
     }
   },
 
   computed: {
     routeItems() {
       return this.$store.state.routes
+    },
+    headerDark() {
+      return this.$store.state.headerDark
+    },
+    locales() {
+      return this.$i18n.locales
+    },
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code === this.$i18n.locale)
     },
   },
   mounted() {

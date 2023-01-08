@@ -94,7 +94,9 @@ export default {
       }
     },
   },
-  mounted() {},
+  mounted() {
+    this.$store.commit('updateHeaderDark', true)
+  },
   methods: {
     filter: function (tag) {
       this.selectedFilter = tag

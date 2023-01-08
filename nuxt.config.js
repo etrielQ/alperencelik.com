@@ -1,3 +1,6 @@
+import tr from './locales/tr.json'
+import en from './locales/en.json'
+
 export default {
   ssr: true,
   target: 'static',
@@ -62,17 +65,16 @@ export default {
   },
 
   i18n: {
-    locales: ['en', 'tr'],
+    locales: [
+      { code: 'en', name: 'ENG', image: '/images/flag-en.png' },
+      { code: 'tr', name: 'TUR', image: '/images/flag-tr.png' },
+    ],
     defaultLocale: 'tr',
     vueI18n: {
       fallbackLocale: 'tr',
       messages: {
-        en: {
-          welcome: 'Welcome',
-        },
-        tr: {
-          welcome: 'Selamlar',
-        },
+        en,
+        tr,
       },
     },
   },

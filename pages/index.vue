@@ -13,6 +13,8 @@
 
 <script>
 export default {
-  name: 'IndexPage',
+  created() {
+    this.$store.commit('updateHeaderDark', false)
+  },
 }
 </script>
