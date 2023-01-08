@@ -78,17 +78,103 @@
         </div>
       </div>
     </div>
-    <section class="py-[10rem]">
+    <section
+      v-if="workData.responsive !== null"
+      class="pt-[10rem] overflow-hidden"
+    >
       <div class="container">
         <sectionTitle name="Responsive Screens" />
-        <div class="swiper js-responsive-slider">
+        <div
+          ref="responsiveSlider"
+          class="swiper js-responsive-slider overflow-initial"
+        >
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="work-slider__item work-slider__item--mobile">
-                <div class="work-slider__item-top"></div>
+            <div
+              v-for="(item, index) in workData.responsive"
+              :key="index"
+              class="swiper-slide w-max"
+            >
+              <div class="rounded-[1.5rem] overflow-hidden">
+                <div
+                  class="py-[1rem] px-[3rem] bg-grayBgLight flex gap-[3rem] items-center"
+                  :class="{
+                    'min-w-[120rem] w-full': item.type == 'desktop',
+                    'w-[99rem]': item.type == 'tablet',
+                    'w-[43rem]': item.type == 'mobile',
+                  }"
+                >
+                  <div v-if="item.type == 'desktop'" class="flex gap-[1.5rem]">
+                    <span
+                      class="w-[1.8rem] h-[1.8rem] bg-borderColor rounded-full"
+                    >
+                    </span>
+                    <span
+                      class="w-[1.8rem] h-[1.8rem] bg-borderColor rounded-full"
+                    >
+                    </span>
+                    <span
+                      class="w-[1.8rem] h-[1.8rem] bg-borderColor rounded-full"
+                    >
+                    </span>
+                  </div>
+                  <div
+                    class="h-[4.8rem] rounded-[2.5rem] bg-grayBg px-[3rem] py-[0.4rem] w-full flex items-center"
+                  >
+                    <div class="text-base font-[500] text-grayLight">
+                      {{ workData.href }}
+                    </div>
+                  </div>
+                </div>
+                <div class="h-[59rem] w-full">
+                  <img class="w-full h-full" :src="item.image" alt="" />
+                </div>
               </div>
-              <div class="work-slider__item work-slider__item--tablet"></div>
-              <div class="work-slider__item work-slider__item--desktop"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-[5rem] mt-[42rem] mb-[10rem] relative h-[35rem] w-[calc(100%-(100vh-1621px/2))] rounded-tr-[5rem] bg-grayBgLight"
+    >
+      <div class="container">
+        <div class="flex items-center justify-between">
+          <div>
+            <sectionTitle
+              class="text-[7.8rem] max-w-[17rem]"
+              name="See All Works"
+            />
+            <br />
+            <v-button
+              :link="
+                nextData
+                  ? `/work-detail/${nextData.slug}`
+                  : `/work-detail/${workDatas[0].slug}`
+              "
+              icon="iconArrow"
+              type="default"
+            >
+              Works
+            </v-button>
+          </div>
+          <div class="flex gap-[4rem]">
+            <div
+              class="flex flex-col items-end justify-end pr-[3rem] relative after:absolute after:top-[-2rem] after:right-0 after:w-[0.6rem] after:h-[calc(100%+4rem)] after:bg-primary after:rounded-tl-[0.5rem] after:rounded-bl-[0.5rem]"
+            >
+              <div class="text-base font-[500] text-grayLight">NEXT WORK</div>
+              <div class="mt-[5rem] text-lg text-grayDark font-[700]">
+                {{ nextData ? nextData.name : workDatas[0].name }}
+              </div>
+              <div class="text-base font-[600] text-gray">
+                {{ nextData ? nextData.tag : workDatas[0].tag }}
+              </div>
+            </div>
+            <div class="w-[43rem] relative pr-[10rem]">
+              <img
+                class="absolute bottom-[-10rem] right-0 w-full h-[66.5rem]"
+                :src="nextData ? nextData.cover_1 : workDatas[0].cover_1"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -98,6 +184,7 @@
 </template>
 
 <script>
+import { Swiper } from 'swiper'
 import AppSubheader from '@/components/common/appSubheader.vue'
 import SectionTitle from '@/components/sectionTitle.vue'
 export default {
@@ -111,14 +198,35 @@ export default {
       workDatas: [],
       slug: this.$route.params.workDetail,
       bcItems: [{ name: 'Home' }, { name: 'Works' }],
+      nextId: null,
+      nextData: [],
     }
   },
   async mounted() {
+    await this.$nextTick()
+    // Fetching Data
     this.workDatas = await this.$store.state.works
-    const data = this.workDatas.find(
-      (item) => item.name.toLowerCase().replace(' ', '-') === this.slug
-    )
+    this.workDatas.forEach((e, i) => {
+      console.log(e, i)
+      if (this.slug === e.slug) {
+        this.nextId = i + 1
+      }
+    })
+    this.nextData = this.workDatas[this.nextId]
+
+    const data = this.workDatas.find((item) => {
+      return item.slug === this.slug
+    })
     this.workData = data
+    // Swiper
+    Swiper.use()
+    const responsiveSwiper = new Swiper(this.$refs.responsiveSlider, {
+      slidesPerView: 'auto',
+      spaceBetween: 40,
+      centeredSlides: true,
+      speed: 900,
+    })
+    responsiveSwiper.on('slideChange', function () {})
   },
   methods: {},
 }
